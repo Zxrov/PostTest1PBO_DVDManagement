@@ -1,0 +1,129 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+       
+        static class DVD {
+        String id;
+        String judul;
+        String genre;
+        int tahun;
+
+        DVD(String id, String judul, String genre, int tahun) {
+            this.id = id;
+            this.judul = judul;
+            this.genre = genre;
+            this.tahun = tahun;
+        }
+    }
+    public static void main(String[] args) {
+         Scanner sc = new Scanner(System.in);
+        ArrayList<DVD> daftarDVD = new ArrayList<>();
+        int pilihan;
+
+        do {
+            System.out.println("\n=== Sistem Manajemen Penyewaan DVD/Film Online ===");
+            System.out.println("1. Tambah Data DVD");
+            System.out.println("2. Lihat Data DVD");
+            System.out.println("3. Ubah Data DVD");
+            System.out.println("4. Hapus Data DVD");
+            System.out.println("5. Keluar");
+            System.out.print("Pilih menu: ");
+            pilihan = sc.nextInt();
+            sc.nextLine(); 
+
+            switch (pilihan) {
+                case 1:
+                    // CREATE
+                    System.out.print("Masukkan ID DVD: ");
+                    String id = sc.nextLine();
+
+                    // Validasi ID 
+                    boolean idAda = false;
+                    for (DVD dvd : daftarDVD) {
+                        if (dvd.id.equals(id)) {
+                            idAda = true;
+                            break;
+                        }
+                    }
+
+                    if (idAda) {
+                        System.out.println("ID sudah terdaftar! Gunakan ID lain.");
+                    } else {
+                        System.out.print("Masukkan Judul DVD: ");
+                        String judul = sc.nextLine();
+                        System.out.print("Masukkan Genre DVD: ");
+                        String genre = sc.nextLine();
+                        System.out.print("Masukkan Tahun Rilis: ");
+                        int tahun = sc.nextInt();
+                        sc.nextLine();
+
+                        daftarDVD.add(new DVD(id, judul, genre, tahun));
+                        System.out.println("Data berhasil ditambahkan!");
+                    }
+                    break;
+
+                case 2:
+                    System.out.println("\n=== Daftar DVD ===");
+                    if (daftarDVD.isEmpty()) {
+                        System.out.println("Belum ada data DVD.");
+                    } else {
+                        for (int i = 0; i < daftarDVD.size(); i++) {
+                            DVD dvd = daftarDVD.get(i);
+                            System.out.println((i + 1) + ". " + dvd.id + " | " + dvd.judul +
+                                               " | " + dvd.genre + " | " + dvd.tahun);
+                        }
+                    }
+                    break;
+
+                case 3:
+                    System.out.print("Masukkan ID DVD yang ingin diubah: ");
+                    String idUbah = sc.nextLine();
+                    boolean ditemukan = false;
+                    for (DVD dvd : daftarDVD) {
+                        if (dvd.id.equals(idUbah)) {
+                            System.out.print("Judul baru: ");
+                            dvd.judul = sc.nextLine();
+                            System.out.print("Genre baru: ");
+                            dvd.genre = sc.nextLine();
+                            System.out.print("Tahun baru: ");
+                            dvd.tahun = sc.nextInt();
+                            sc.nextLine();
+                            System.out.println("Data berhasil diubah!");
+                            ditemukan = true;
+                            break;
+                        }
+                    }
+                    if (!ditemukan) {
+                        System.out.println("Data dengan ID tersebut tidak ditemukan.");
+                    }
+                    break;
+
+                case 4:
+                    System.out.print("Masukkan ID DVD yang ingin dihapus: ");
+                    String idHapus = sc.nextLine();
+                    boolean terhapus = false;
+                    for (int i = 0; i < daftarDVD.size(); i++) {
+                        if (daftarDVD.get(i).id.equals(idHapus)) {
+                            daftarDVD.remove(i);
+                            System.out.println("Data berhasil dihapus!");
+                            terhapus = true;
+                            break;
+                        }
+                    }
+                    if (!terhapus) {
+                        System.out.println("Data dengan ID tersebut tidak ditemukan.");
+                    }
+                    break;
+
+                case 5:
+                    System.out.println("Terima kasih telah menggunakan sistem ini.");
+                    break;
+
+                default:
+                    System.out.println("Pilihan tidak valid, coba lagi!");
+            }
+
+        } while (pilihan != 5);
+    }
+}
