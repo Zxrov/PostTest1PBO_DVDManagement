@@ -2,12 +2,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-       
-        static class DVD {
-        String id;
-        String judul;
-        String genre;
+    
+    // Class DVD
+    static class DVD {
+        String id, judul, genre;
         int tahun;
+        boolean dipinjam = false; // status
 
         DVD(String id, String judul, String genre, int tahun) {
             this.id = id;
@@ -16,114 +16,146 @@ public class Main {
             this.tahun = tahun;
         }
     }
-    public static void main(String[] args) {
-         Scanner sc = new Scanner(System.in);
-        ArrayList<DVD> daftarDVD = new ArrayList<>();
-        int pilihan;
 
+    // Class Pelanggan
+    static class Pelanggan {
+        String id, nama;
+        Pelanggan(String id, String nama) {
+            this.id = id;
+            this.nama = nama;
+        }
+    }
+
+    // Class Transaksi
+    static class Transaksi {
+        String idTransaksi;
+        Pelanggan pelanggan;
+        DVD dvd;
+        String tglPinjam, tglKembali;
+
+        Transaksi(String id, Pelanggan p, DVD d, String pinjam, String kembali) {
+            this.idTransaksi = id;
+            this.pelanggan = p;
+            this.dvd = d;
+            this.tglPinjam = pinjam;
+            this.tglKembali = kembali;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<DVD> daftarDVD = new ArrayList<>();
+        ArrayList<Pelanggan> daftarPelanggan = new ArrayList<>();
+        ArrayList<Transaksi> daftarTransaksi = new ArrayList<>();
+
+        int pilihan;
         do {
-            System.out.println("\n=== Sistem Manajemen Penyewaan DVD/Film Online ===");
-            System.out.println("1. Tambah Data DVD");
-            System.out.println("2. Lihat Data DVD");
-            System.out.println("3. Ubah Data DVD");
-            System.out.println("4. Hapus Data DVD");
-            System.out.println("5. Keluar");
+            System.out.println("\n=== Sistem Manajemen Penyewaan DVD ===");
+            System.out.println("1. Tambah DVD");
+            System.out.println("2. Lihat DVD");
+            System.out.println("3. Tambah Pelanggan");
+            System.out.println("4. Lihat Pelanggan");
+            System.out.println("5. Tambah Transaksi Penyewaan");
+            System.out.println("6. Lihat Transaksi");
+            System.out.println("7. Keluar");
             System.out.print("Pilih menu: ");
-            pilihan = sc.nextInt();
-            sc.nextLine(); 
+            pilihan = sc.nextInt(); sc.nextLine();
 
             switch (pilihan) {
-                case 1:
-                    // CREATE
-                    System.out.print("Masukkan ID DVD: ");
+                case 1: // tambah dvd
+                    System.out.print("ID DVD: ");
                     String id = sc.nextLine();
-
-                    // Validasi ID 
-                    boolean idAda = false;
-                    for (DVD dvd : daftarDVD) {
-                        if (dvd.id.equals(id)) {
-                            idAda = true;
-                            break;
-                        }
-                    }
-
-                    if (idAda) {
-                        System.out.println("ID sudah terdaftar! Gunakan ID lain.");
-                    } else {
-                        System.out.print("Masukkan Judul DVD: ");
-                        String judul = sc.nextLine();
-                        System.out.print("Masukkan Genre DVD: ");
-                        String genre = sc.nextLine();
-                        System.out.print("Masukkan Tahun Rilis: ");
-                        int tahun = sc.nextInt();
-                        sc.nextLine();
-
-                        daftarDVD.add(new DVD(id, judul, genre, tahun));
-                        System.out.println("Data berhasil ditambahkan!");
-                    }
+                    System.out.print("Judul: ");
+                    String judul = sc.nextLine();
+                    System.out.print("Genre: ");
+                    String genre = sc.nextLine();
+                    System.out.print("Tahun: ");
+                    int tahun = sc.nextInt(); sc.nextLine();
+                    daftarDVD.add(new DVD(id, judul, genre, tahun));
+                    System.out.println("DVD berhasil ditambahkan!");
                     break;
 
-                case 2:
+                case 2: // lihat dvd
                     System.out.println("\n=== Daftar DVD ===");
-                    if (daftarDVD.isEmpty()) {
-                        System.out.println("Belum ada data DVD.");
-                    } else {
-                        for (int i = 0; i < daftarDVD.size(); i++) {
-                            DVD dvd = daftarDVD.get(i);
-                            System.out.println((i + 1) + ". " + dvd.id + " | " + dvd.judul +
-                                               " | " + dvd.genre + " | " + dvd.tahun);
+                    if (daftarDVD.isEmpty()) System.out.println("Belum ada data.");
+                    else {
+                        for (DVD d : daftarDVD) {
+                            System.out.println(d.id + " | " + d.judul + " | " + d.genre + " | " + d.tahun +
+                                               (d.dipinjam ? " | Dipinjam" : " | Tersedia"));
                         }
                     }
                     break;
 
-                case 3:
-                    System.out.print("Masukkan ID DVD yang ingin diubah: ");
-                    String idUbah = sc.nextLine();
-                    boolean ditemukan = false;
-                    for (DVD dvd : daftarDVD) {
-                        if (dvd.id.equals(idUbah)) {
-                            System.out.print("Judul baru: ");
-                            dvd.judul = sc.nextLine();
-                            System.out.print("Genre baru: ");
-                            dvd.genre = sc.nextLine();
-                            System.out.print("Tahun baru: ");
-                            dvd.tahun = sc.nextInt();
-                            sc.nextLine();
-                            System.out.println("Data berhasil diubah!");
-                            ditemukan = true;
-                            break;
+                case 3: // tambah pelanggan
+                    System.out.print("ID Pelanggan: ");
+                    String idp = sc.nextLine();
+                    System.out.print("Nama: ");
+                    String nama = sc.nextLine();
+                    daftarPelanggan.add(new Pelanggan(idp, nama));
+                    System.out.println("Pelanggan berhasil ditambahkan!");
+                    break;
+
+                case 4: // lihat pelanggan
+                    System.out.println("\n=== Daftar Pelanggan ===");
+                    if (daftarPelanggan.isEmpty()) System.out.println("Belum ada data.");
+                    else {
+                        for (Pelanggan p : daftarPelanggan) {
+                            System.out.println(p.id + " | " + p.nama);
                         }
-                    }
-                    if (!ditemukan) {
-                        System.out.println("Data dengan ID tersebut tidak ditemukan.");
                     }
                     break;
 
-                case 4:
-                    System.out.print("Masukkan ID DVD yang ingin dihapus: ");
-                    String idHapus = sc.nextLine();
-                    boolean terhapus = false;
-                    for (int i = 0; i < daftarDVD.size(); i++) {
-                        if (daftarDVD.get(i).id.equals(idHapus)) {
-                            daftarDVD.remove(i);
-                            System.out.println("Data berhasil dihapus!");
-                            terhapus = true;
-                            break;
-                        }
+                case 5: // tambah transaksi
+                    if (daftarDVD.isEmpty() || daftarPelanggan.isEmpty()) {
+                        System.out.println("Data DVD / Pelanggan kosong!");
+                        break;
                     }
-                    if (!terhapus) {
-                        System.out.println("Data dengan ID tersebut tidak ditemukan.");
+                    System.out.print("ID Transaksi: ");
+                    String idt = sc.nextLine();
+
+                    System.out.print("ID Pelanggan: ");
+                    String cariP = sc.nextLine();
+                    Pelanggan plg = null;
+                    for (Pelanggan p : daftarPelanggan) if (p.id.equals(cariP)) plg = p;
+                    if (plg == null) { System.out.println("Pelanggan tidak ditemukan!"); break; }
+
+                    System.out.print("ID DVD: ");
+                    String cariD = sc.nextLine();
+                    DVD pinjam = null;
+                    for (DVD d : daftarDVD) if (d.id.equals(cariD)) pinjam = d;
+                    if (pinjam == null) { System.out.println("DVD tidak ditemukan!"); break; }
+                    if (pinjam.dipinjam) { System.out.println("DVD sedang dipinjam!"); break; }
+
+                    System.out.print("Tanggal Pinjam: ");
+                    String tglP = sc.nextLine();
+                    System.out.print("Tanggal Kembali: ");
+                    String tglK = sc.nextLine();
+
+                    pinjam.dipinjam = true;
+                    daftarTransaksi.add(new Transaksi(idt, plg, pinjam, tglP, tglK));
+                    System.out.println("Transaksi berhasil ditambahkan!");
+                    break;
+
+                case 6: // lihat transaksi
+                    System.out.println("\n=== Daftar Transaksi ===");
+                    if (daftarTransaksi.isEmpty()) System.out.println("Belum ada transaksi.");
+                    else {
+                        for (Transaksi t : daftarTransaksi) {
+                            System.out.println(t.idTransaksi + " | " + t.pelanggan.nama +
+                                               " | " + t.dvd.judul +
+                                               " | Pinjam: " + t.tglPinjam +
+                                               " | Kembali: " + t.tglKembali);
+                        }
                     }
                     break;
 
-                case 5:
-                    System.out.println("Terima kasih telah menggunakan sistem ini.");
+                case 7:
+                    System.out.println("Keluar...");
                     break;
 
                 default:
-                    System.out.println("Pilihan tidak valid, coba lagi!");
+                    System.out.println("Pilihan tidak valid!");
             }
-
-        } while (pilihan != 5);
+        } while (pilihan != 7);
     }
 }
