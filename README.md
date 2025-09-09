@@ -32,10 +32,10 @@ User diminta untuk memilih 1 menu dari ke-5 menu yang tersedia.
 ## Menu 1 -> Tambah Data (CREATE)
 
 User harus mengisi:
-. Menambah ID DVD:
-. Menambah Judul DVD:
-. Menambah Genre DVD:
-. Menambah Tahun Rilis DVD:
+ID DVD:
+Judul DVD:
+Genre DVD:
+Menambah Tahun Rilis DVD:
 
 <img width="350" height="109" alt="image" src="https://github.com/user-attachments/assets/bfa2437e-0b26-4b11-b5e6-79e1ea118d10" />
 
