@@ -14,5 +14,8 @@ Program ini dibuat dengan bahasa **Java** dan mendukung operasi dasar **CRUD (Cr
 - `Main` → class utama berisi menu interaktif dan logika CRUD
 
 
+## Menu Program
+
+<img width="336" height="168" alt="image" src="https://github.com/user-attachments/assets/274bcbbf-2e28-4f4d-9104-f3b28b08fdb2" />
 
 
