@@ -1,7 +1,19 @@
 # 🎬 Sistem Manajemen Penyewaan DVD/Film Online
 
-Aplikasi sederhana untuk mengelola data DVD.  
-Program ini dibuat dengan bahasa **Java** dan mendukung operasi dasar **CRUD (Create, Read, Update, Delete)** pada data DVD.
+## Deskripsi Program
+
+Project ini dibuat untuk **Post Test Praktikum Pemrograman Berorientasi Objek (PBO)**.  
+Aplikasi berbasis console ini mensimulasikan sistem rental DVD sederhana dengan fitur:
+- Menambahkan, melihat, mengubah, dan menghapus data DVD
+- Menambahkan dan melihat data pelanggan
+- Melakukan transaksi penyewaan DVD (pinjam & kembali)
+- Menampilkan daftar transaksi penyewaan
+
+## Struktur Class
+Program ini menggunakan 3 class utama (dalam satu file `Main.java`):
+- `DVD` → menyimpan data film (id, judul, genre, tahun, status pinjam)
+- `Pelanggan` → menyimpan data pelanggan (id, nama)
+- `Transaksi` → menyimpan data penyewaan (id transaksi, pelanggan, DVD, tanggal pinjam & kembali)
 
 ## Fitur Utama
 - ➕ Tambah data DVD baru
