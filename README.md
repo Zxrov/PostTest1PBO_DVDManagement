@@ -1,6 +1,6 @@
 # 🎬 Sistem Manajemen Penyewaan DVD/Film Online
 
-Aplikasi sederhana berbasis console untuk mengelola data DVD.  
+Aplikasi sederhana untuk mengelola data DVD.  
 Program ini dibuat dengan bahasa **Java** dan mendukung operasi dasar **CRUD (Create, Read, Update, Delete)** pada data DVD.
 
 ## 🛠️ Fitur Utama
