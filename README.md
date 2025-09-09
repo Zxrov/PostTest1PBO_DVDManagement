@@ -26,8 +26,11 @@ Program ini menggunakan 3 class utama (dalam satu file `Main.java`):
 - `Main` → class utama berisi menu interaktif dan logika CRUD
 
 
-## Menu Program
+## Tampilan Menu Program
 
-<img width="336" height="168" alt="image" src="https://github.com/user-attachments/assets/274bcbbf-2e28-4f4d-9104-f3b28b08fdb2" />
+<img width="365" height="179" alt="image" src="https://github.com/user-attachments/assets/264ed29e-a798-4b40-a6a8-065651cd47c5" />
+User diminta untuk memilih 1 menu dari ke-5 menu yang tersedia.
+
+## Menu 1 -> Tambah Data (CREATE)
 
 
