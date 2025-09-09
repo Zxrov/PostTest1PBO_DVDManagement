@@ -9,7 +9,7 @@ Aplikasi berbasis console ini mensimulasikan sistem rental DVD sederhana dengan 
 
 ## Struktur Class
 Program ini menggunakan 3 class utama (dalam satu file `Main.java`):
-- `DVD` → menyimpan data film (id, judul, genre, tahun, status pinjam)
+- `DVD` → menyimpan data film (id, judul, genre, tahun)
 
 ## Fitur Utama
 - ➕ Tambah data DVD baru
@@ -38,6 +38,14 @@ User harus mengisi:
 - Tahun Rilis DVD
 
 <img width="350" height="109" alt="image" src="https://github.com/user-attachments/assets/bfa2437e-0b26-4b11-b5e6-79e1ea118d10" />
+
+Hasil Output yang sudah dimasukkan oleh User.
+
+## Menu 2 -> Melihat Data (READ)
+
+User harus menginput No. 2 untuk melihat data
+
+<img width="305" height="44" alt="image" src="https://github.com/user-attachments/assets/29b70b12-4aa2-4bdb-88cc-c30e07fac90b" />
 
 Hasil Output yang sudah dimasukkan oleh User.
 
