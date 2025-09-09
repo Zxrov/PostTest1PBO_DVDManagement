@@ -69,5 +69,10 @@ User harus menginput No. 4 untuk menghapus data:
 Hasil Output yang dimasukkan oleh User.
 - Kini User sudah menghapus data
 
+## Menu 5 -> Keluar (QUIT)
 
+<img width="400" height="74" alt="image" src="https://github.com/user-attachments/assets/dbb958fe-8f96-4ac2-b0ae-55542a4f6909" />
+
+Hasil Output yang dimasukkan oleh User.
+- Kini User sudah keluar dari program
 
