@@ -6,14 +6,10 @@ Project ini dibuat untuk **Post Test Praktikum Pemrograman Berorientasi Objek (P
 Aplikasi berbasis console ini mensimulasikan sistem rental DVD sederhana dengan fitur:
 - Menambahkan, melihat, mengubah, dan menghapus data DVD
 - Menambahkan dan melihat data pelanggan
-- Melakukan transaksi penyewaan DVD (pinjam & kembali)
-- Menampilkan daftar transaksi penyewaan
 
 ## Struktur Class
 Program ini menggunakan 3 class utama (dalam satu file `Main.java`):
 - `DVD` → menyimpan data film (id, judul, genre, tahun, status pinjam)
-- `Pelanggan` → menyimpan data pelanggan (id, nama)
-- `Transaksi` → menyimpan data penyewaan (id transaksi, pelanggan, DVD, tanggal pinjam & kembali)
 
 ## Fitur Utama
 - ➕ Tambah data DVD baru
@@ -28,10 +24,22 @@ Program ini menggunakan 3 class utama (dalam satu file `Main.java`):
 
 ## Tampilan Menu Program
 
-<img width="365" height="179" alt="image" src="https://github.com/user-attachments/assets/264ed29e-a798-4b40-a6a8-065651cd47c5" />
+<img width="409" height="143" alt="image" src="https://github.com/user-attachments/assets/ca5a7bdd-2394-46ad-b544-3c37b825a042" />
 
-User diminta untuk memilih 1 menu dari ke-7 menu yang tersedia.
+
+User diminta untuk memilih 1 menu dari ke-5 menu yang tersedia.
 
 ## Menu 1 -> Tambah Data (CREATE)
+
+User harus mengisi:
+. Menambah ID DVD:
+. Menambah Judul DVD:
+. Menambah Genre DVD:
+. Menambah Tahun Rilis DVD:
+
+<img width="350" height="109" alt="image" src="https://github.com/user-attachments/assets/bfa2437e-0b26-4b11-b5e6-79e1ea118d10" />
+
+Hasil Output yang sudah dimasukkan oleh User.
+
 
 
