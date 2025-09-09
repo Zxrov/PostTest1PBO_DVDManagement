@@ -43,11 +43,11 @@ Hasil Output yang sudah dimasukkan oleh User.
 
 ## Menu 2 -> Melihat Data (READ)
 
-User harus menginput No. 2 untuk melihat data
+User harus menginput No. 2 untuk melihat data:
 
 <img width="305" height="44" alt="image" src="https://github.com/user-attachments/assets/29b70b12-4aa2-4bdb-88cc-c30e07fac90b" />
 
-Hasil Output yang sudah dimasukkan oleh User.
+Hasil Output yang sudah dimasukkan oleh User, Kini User dapat melihat hasil data yang telah ditambahkan.
 
 
 
